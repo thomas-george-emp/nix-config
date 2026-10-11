@@ -10,10 +10,9 @@
   # function outputs
   outputs = inputs: {
 
-    packages = builtins.mapAttrs (system: pkgs: {
-      hello = pkgs.hello;
-
-      default = inputs.self.packages.${system}.hello;
-    }) inputs.nixpkgs.legacyPackages;
+    nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [ ./configuration.nix ];
+    };
   };
 }
