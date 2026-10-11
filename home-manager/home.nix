@@ -100,6 +100,22 @@
     };
   };
 
+  programs.gh = {
+    enable = true;
+    settings.git_protocol = "ssh";
+  };
+
+  programs.ssh = {
+    enable = true;
+    matchBlocks."github.com" = {
+      identityFle = "~/.ssh/id_ed25519";
+      identitiesOnly = true;
+      addKeystoAgent = "yes";
+    };
+  };
+
+  services.ssh-agent.enable = true;
+
   # Hyprland
   wayland.windowManager.hyprland = {
     enable = true;
