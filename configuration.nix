@@ -173,6 +173,7 @@ in
 
     # Version control
     git
+    gh
 
     # Image / PDF viewers
     zathura
