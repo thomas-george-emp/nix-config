@@ -142,6 +142,7 @@ in
     # Information utilities
     hwinfo
     wev
+    tree
 
     # Silly programs
     sl

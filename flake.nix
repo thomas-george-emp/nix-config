@@ -2,14 +2,16 @@
   description = "A very basic flake";
 
   inputs = {
-    nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst";
+    nixpkgsLockableTarball.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
-  outputs = inputs: {
-    packages = builtins.mapAttrs (system: pkgs: {
-      hello = pkgs.hello;
-
-      default = inputs.self.packages.${system}.hello;
-    }) inputs.nixpkgs.legacyPackages;
-  };
+  outputs =
+    { self, nixpkgs, ... }@inputs:
+    {
+      nixosConfigurations.thorno = nixpkgs.lib.nixosSystem {
+        modules = [
+          ./configuration.nix
+        ];
+      };
+    };
 }
