@@ -3,14 +3,28 @@
 
   inputs = {
     nixpkgsLockableTarball.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager = {
+      type = "github";
+      owner = "nix-community";
+      repo = "home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    { self, nixpkgs, ... }@inputs:
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
     {
       nixosConfigurations.thorno = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
+          home-manager.nixosModules.home-manager
         ];
       };
     };

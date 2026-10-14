@@ -8,6 +8,7 @@
   home.stateVersion = "26.05";
 
   home.pointerCursor = {
+    enable = true;
     name = "phinger-cursors-dark";
     package = pkgs.phinger-cursors;
     size = 32;
@@ -107,10 +108,11 @@
 
   programs.ssh = {
     enable = true;
-    matchBlocks."github.com" = {
-      identityFle = "~/.ssh/id_ed25519";
+    enableDefaultConfig = false;
+    settings."github.com" = {
+      identityFile = "~/.ssh/id_ed25519";
       identitiesOnly = true;
-      addKeystoAgent = "yes";
+      addKeysToAgent = "yes";
     };
   };
 

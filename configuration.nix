@@ -3,15 +3,11 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 { config, pkgs, ... }:
-let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-26.05.tar.gz";
-in
 {
 
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    (import "${home-manager}/nixos")
   ];
 
   # Use the systemd-boot EFI boot loader.
