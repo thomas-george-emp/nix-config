@@ -24,7 +24,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "laptom"; # Define your hostname.
+  networking.hostName = "thorno"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -101,7 +101,9 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
+    # Generally useful utilites
     wget
+    usbutils
 
     # Web Browser
     firefox

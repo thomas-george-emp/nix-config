@@ -19,7 +19,7 @@
       ...
     }@inputs:
     {
-      nixosConfigurations.laptom = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.thorno = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
