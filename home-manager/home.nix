@@ -15,10 +15,6 @@
     gtk.enable = true;
   };
 
-  home.sessionVariables = {
-    PICO_SDK_PATH = "${config.home.homeDirectory}/pico/pico-sdk";
-  };
-
   # Kitty terminal
   programs.kitty = {
     enable = true;
