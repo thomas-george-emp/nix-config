@@ -115,6 +115,7 @@
     # Hyprland
     hyprland
     hyprpaper
+    hypridle
 
     # Wayland stuff
     grim
@@ -234,7 +235,10 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   services.nginx.enable = true;
-
+  services.udev.extraRules = ''
+    # Raspberry Pi Debugprobe (CMSIS-DAP)
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="2e8a", ATTRS{idProduct}=="000c", MODE="0660", GROUP="dialout", TAG+="uaccess"
+  '';
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
