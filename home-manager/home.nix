@@ -170,6 +170,7 @@
   };
 
   services.hypridle.settings = {
+    enable = true;
     general = {
       after_sleep_cmd = "hyprctl dispatch dpms on";
       ignore_dbus_inhibit = false;

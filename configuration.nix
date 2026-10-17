@@ -109,6 +109,9 @@
     # Web Browser
     firefox
 
+    # Music
+    spotify
+
     # Fun with friends
     discord
 
