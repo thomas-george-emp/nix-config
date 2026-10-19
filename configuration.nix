@@ -139,7 +139,7 @@
 
     # Text editors
     neovim
-    vim
+    vis
 
     # Terminal Emulator
     kitty

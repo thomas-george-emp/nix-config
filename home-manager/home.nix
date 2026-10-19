@@ -189,6 +189,12 @@
     ];
   };
 
+  programs.eww = {
+    enable = true;
+    yuckConfig = builtins.readFile ./config/eww.yuck;
+    scssConfig = builtins.readFile ./config/eww.scss;
+  };
+
   services.hyprpaper.enable = true;
   xdg.configFile."hypr/hyprpaper.conf".source = ./config/hypr/hyprpaper.conf;
   xdg.configFile."hypr/wallpapers".source = ./config/hypr/wallpapers;
