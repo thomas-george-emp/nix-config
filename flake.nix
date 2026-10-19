@@ -20,6 +20,7 @@
       self,
       nixpkgs,
       home-manager,
+      nur,
       ...
     }@inputs:
     {
@@ -27,6 +28,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
+          { nixpkgs.overlays = [ nur.overlays.default ]; }
           ./configuration.nix
           home-manager.nixosModules.home-manager
         ];
