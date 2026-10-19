@@ -191,8 +191,8 @@
 
   programs.eww = {
     enable = true;
-    yuckConfig = builtins.readFile ./config/eww.yuck;
-    scssConfig = builtins.readFile ./config/eww.scss;
+    yuckConfig = builtins.readFile ./config/eww/eww.yuck;
+    scssConfig = builtins.readFile ./config/eww/eww.scss;
   };
 
   services.hyprpaper.enable = true;
