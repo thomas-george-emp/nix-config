@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  nur,
   ...
 }:
 {
@@ -15,6 +16,16 @@
     gtk.enable = true;
   };
 
+  programs.firefox = {
+    enable = true;
+    profiles.default = {
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        ublock-origin
+        darkreader
+      ];
+    };
+  };
+
   # Kitty terminal
   programs.kitty = {
     enable = true;
@@ -23,6 +34,7 @@
     settings = {
       shell = "fish";
     };
+    font.name = "JetBrainsMono Nerd Font";
   };
 
   # Fish shell
